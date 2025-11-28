@@ -1,0 +1,164 @@
+/* Sidebar container */
+.sidebar {
+    width: 250px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #563375;
+}
+.logo-image{
+    height: 60px;
+}
+/* Logo section */
+.sidebar-logo {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* .sidebar-logo span{
+    color: #000;
+} */
+
+/* Menu list */
+.sidebar-menu {
+    flex: 1;
+    list-style: none;
+    margin: 0;
+    padding: 20px 0;
+    overflow-y: auto;
+    
+}
+
+.sidebar-menu li {
+    margin-bottom: 5px;
+}
+
+/* Menu links */
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: background 0.2s ease;
+}
+
+.sidebar-menu a:hover {
+    background-color: #FFFBF4;
+    color: #000000;
+}
+
+.sidebar-menu a.active {
+    background-color: #FFFBF4;
+    color: #000000;
+}
+
+/* SVG icons */
+.sidebar-menu svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    stroke: currentColor;
+}
+
+/* User section */
+.sidebar-user {
+    padding: 15px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-user .user-name {
+    font-weight: 500;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.toggle-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Ensure full-page layout beside sidebar */
+.layout-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f3f4f6; /* gray-100 equivalent */
+}
+
+/* Sidebar already styled as fixed in your previous CSS */
+.sidebar {
+    flex-shrink: 0;
+    width: 250px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Content beside sidebar */
+.content-area {
+    flex: 1;
+    margin-left: 250px; /* matches sidebar width */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header styling */
+.page-header {
+    background: white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* Main content */
+.page-content {
+    flex: 1;
+    padding: 24px;
+}
+.sidebar-user {
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.sidebar-user a {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    transition: color 0.2s;
+}
+/* Dropdown above toggle button */
+.user-dropdown {
+    position: absolute;
+    bottom: 60px; /* pushes it above the toggle area */
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 0.75rem 1rem;
+}
+
+.user-dropdown a {
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0;
+    transition: color 0.2s ease;
+}

@@ -1,0 +1,1 @@
+<img src="<?php echo e(asset('images/logo.png')); ?>" alt="My Logo" style="height: 250px; margin-bottom: -70px; margin-top: -100px; drop-shadow: 0 4px 100px rgba(0, 0, 0, 0.5);"><?php /**PATH C:\petergwapo\Taghoy\BSIT-3A-IPT2\Taghoy-Laravel-Homepage-User\resources\views/components/application-logo.blade.php ENDPATH**/ ?>

@@ -1,0 +1,383 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #7c3aed;
+  --dark: #1a1a1a;
+  --light: #faf8f5;
+  --radius: 14px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--light);
+  color: #333;
+}
+
+/* HEADER */
+.header {
+  background: white;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: 1280px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.nav a:hover {
+  color: var(--primary-color);
+}
+
+/* Buttons */
+.btn-gradient {
+  background: var(--primary-color);
+  padding: 0.55rem 1.3rem;
+  color: white;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-gradient:hover {
+  opacity: 0.85;
+}
+
+.profile-img {
+  height: 42px;
+  width: 42px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+.buttonss {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* HERO */
+.hero {
+  background: url('../images/background.jpg') center/cover;
+  height: 550px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  color: white;
+  max-width: 650px;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  background: white;
+  color: var(--dark);
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* FEATURES SECTION */
+.features-section {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 3rem 1rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 1.5rem;
+  width: 260px;
+  text-align: center;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+}
+
+.feature-card i {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+/* FILTER BAR */
+.filter-sort-container {
+  max-width: 1280px;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.filter-select {
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+/* PRODUCT GRID */
+.product-grid {
+  max-width: 1280px;
+  margin: auto;
+  padding-bottom: 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.product-card {
+  background: white;
+  padding: 1.2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  border-radius: var(--radius);
+}
+
+.product-card h3 {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+}
+
+.price {
+  margin-top: 0.4rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* FOOTER */
+.footer {
+  background: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-top: 1px solid #eee;
+}
+
+.social-icons a {
+  color: var(--primary-color);
+  margin: 0 0.5rem;
+  font-size: 1.3rem;
+}
+
+/* From Uiverse.io by alexmaracinaru */ 
+.cta {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.cta span {
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 14px;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
+
+.cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: black;
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.line{
+  width: 100%;
+  height: 1px;
+  background-color: #ddd;
+  margin: 2rem auto;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.btn-wishlist {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* Default heart */
+.btn-wishlist .fa-heart {
+    color: #888; /* gray */
+    transition: color 0.3s;
+}
+
+/* When filled (added to wishlist) */
+.btn-wishlist .fa-heart.filled-heart {
+    color: #e63946 !important; /* red */
+}
+
+
+.filled-heart {
+    color: #e63946; /* red color */
+}
+
+.cart-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    color: #333131;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.cart-btn:hover {
+    color: #777070;
+}
+
+/* Cart Count Badge */
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: #e63946;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 50%;
+    border: 1px solid white;
+    min-width: 18px;
+    text-align: center;
+}
+
+/* Adjust button layout with other buttons */
+.buttonss {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.wishlist-count, .cart-count {
+    background-color: #e63946;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+}
+
+.btn-wishlist, .cart-btn {
+    position: relative;
+}
+

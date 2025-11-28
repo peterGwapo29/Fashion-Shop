@@ -1,0 +1,134 @@
+.wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.product-info h3 {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 0.2rem 0;
+    text-align: center;
+}
+
+.product-info p {
+    color: #555;
+    margin: 0.2rem 0;
+}
+
+.product-actions button {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #e63946;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-actions button:hover {
+    background-color: #d62839;
+}
+
+.btn-primary {
+    background-color: #0077b6;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #023e8a;
+}
+
+.product-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* FILTER BAR STYLING */
+.filter-sort-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+}
+
+.filter-select {
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    background-color: #fff;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.filter-select:hover {
+    border-color: #0077b6;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #0077b6;
+    box-shadow: 0 0 5px rgba(0, 119, 182, 0.5);
+}
+
+.btn-clear-all {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #e63946;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    float: right;
+}
+
+.btn-clear-all:hover {
+    background-color: #c5303c;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .filter-sort-container {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .filter-select {
+        width: 100%;
+    }
+}
