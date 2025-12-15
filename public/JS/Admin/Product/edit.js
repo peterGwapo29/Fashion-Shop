@@ -73,7 +73,7 @@ class ProductEditModal {
         this.idInput.value = id;
         this.nameInput.value = row.name;
         this.priceInput.value = row.price;
-        this.categoryInput.value = row.category;
+        this.categoryInput.value = row.category_id;
 
         // ✅ Fixed stock handling
         this.stockInput.value = row.stock;

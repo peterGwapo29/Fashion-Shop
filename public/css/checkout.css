@@ -1,0 +1,73 @@
+.checkout-container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 16px;
+}
+
+.checkout-header h2 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.sub {
+  color: #666;
+}
+
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 18px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.04);
+}
+
+.card-title {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #111;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.summary-total {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed #ddd;
+  font-size: 16px;
+}

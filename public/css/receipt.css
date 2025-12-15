@@ -1,0 +1,112 @@
+.receipt-page{
+  max-width:900px;
+  margin:30px auto;
+  padding:0 16px;
+}
+
+.receipt-card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:14px;
+  padding:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.04);
+}
+
+.receipt-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  padding-bottom:14px;
+  border-bottom:1px solid #f3f3f3;
+}
+
+.receipt-top h2{
+  margin:0;
+  font-size:24px;
+}
+
+.sub{
+  margin:6px 0 0;
+  color:#666;
+  font-size:14px;
+}
+
+.receipt-grid{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:14px;
+  margin-top:14px;
+}
+
+.receipt-box{
+  border:1px solid #f0f0f0;
+  border-radius:12px;
+  padding:14px;
+  background:#fafafa;
+}
+
+.receipt-box h4{
+  margin:0 0 10px;
+  font-size:16px;
+}
+
+.receipt-box p{
+  margin:8px 0;
+  font-size:14px;
+}
+
+.receipt-actions{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.badge{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid #eee;
+  font-weight:800;
+  font-size:12px;
+  letter-spacing:.5px;
+}
+
+.badge.pending{
+  background:#fff8e6;
+  border-color:#ffe2a8;
+  color:#8a5a00;
+}
+
+.badge.paid{
+  background:#ecfff0;
+  border-color:#c8f3d1;
+  color:#0b6b2a;
+}
+
+.btn-primary{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:10px;
+  background:#111;
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  text-align:center;
+}
+
+.btn-outline{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:10px;
+  border:1px solid #ddd;
+  background:#fff;
+  color:#111;
+  text-decoration:none;
+  font-weight:700;
+  text-align:center;
+}
+
+@media (max-width:800px){
+  .receipt-grid{grid-template-columns:1fr;}
+}

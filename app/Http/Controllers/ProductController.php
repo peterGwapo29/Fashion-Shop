@@ -21,8 +21,7 @@ class ProductController extends Controller
     }
 
     public function product_datatables(){
-        $products = Product::select(['id', 'name', 'price', 'category_id', 'stock', 'image', 'status'])
-        ->where('status', 'active');;
+        $products = Product::select(['id', 'name', 'price', 'category_id', 'stock', 'image', 'status']);
 
         return DataTables::of($products)
         ->addColumn('category', function($product) {
@@ -118,40 +117,58 @@ class ProductController extends Controller
     }
 
      public function filterProducts(Request $request)
-{
-    $category = $request->category;
-    $sort = $request->sort;
+    {
+        $category = $request->category;
+        $sort = $request->sort;
 
-    $query = Product::where('status', 'active');
+        $query = Product::where('status', 'active');
 
-    // CATEGORY FILTER
-    if ($category && $category !== 'all') {
-        $query->whereHas('category', function ($q) use ($category) {
-            $q->whereRaw('LOWER(category_name) = ?', [$category]);
-        });
+        // CATEGORY FILTER
+        if ($category && $category !== 'all') {
+            $query->whereHas('category', function ($q) use ($category) {
+                $q->whereRaw('LOWER(category_name) = ?', [$category]);
+            });
+        }
+
+        // SORTING
+        switch ($sort) {
+            case 'newest':
+                $query->orderBy('created_at', 'desc');
+                break;
+
+            case 'highlow':
+                $query->orderBy('price', 'desc');
+                break;
+
+            case 'lowhigh':
+                $query->orderBy('price', 'asc');
+                break;
+
+            default:
+                // Featured (default) – newest first
+                $query->orderBy('created_at', 'desc');
+                break;
+        }
+
+        return response()->json($query->get());
     }
 
-    // SORTING
-    switch ($sort) {
-        case 'newest':
-            $query->orderBy('created_at', 'desc');
-            break;
+    public function restore($id)
+    {
+        $product = Product::find($id);
 
-        case 'highlow':
-            $query->orderBy('price', 'desc');
-            break;
+        if (!$product) {
+            return response()->json(['message' => '❌ Product not found.'], 404);
+        }
 
-        case 'lowhigh':
-            $query->orderBy('price', 'asc');
-            break;
+        $product->status = 'active';
+        $product->save();
 
-        default:
-            // Featured (default) – newest first
-            $query->orderBy('created_at', 'desc');
-            break;
+        return response()->json([
+            'message' => '✅ Product restored successfully!',
+            'product' => $product
+        ], 200);
     }
 
-    return response()->json($query->get());
-}
 
 }

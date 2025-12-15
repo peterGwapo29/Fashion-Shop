@@ -4,6 +4,13 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderAdminController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CategoryController;
+
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
@@ -22,7 +29,7 @@ Route::get('/auth/callback', function () {
     $user = User::updateOrCreate([
         'google_id' => $googleUser->id,
     ], [
-        'name' => $googleUser->name,
+        'first_name' => $googleUser->first_name,
         'email' => $googleUser->email,
         'google_token' => $googleUser->token,
         'google_refresh_token' => $googleUser->refreshToken,
@@ -46,8 +53,6 @@ Route::get('/cart', function () {
 })->name('cart.page');
 
 
-
-// ✅ Unified dashboard
 Route::get('/dashboard', function () {
     if (session()->has('admin_id')) {
         return view('dashboard');
@@ -60,30 +65,41 @@ Route::get('/dashboard', function () {
     return redirect()->route('login');
 })->name('dashboard');
 
-// ✅ ADMIN PROFILE ROUTES (Fixed)
-Route::get('/profile/admin', [ProfileController::class, 'edit'])->name('profileEdit');
-Route::patch('/profile/admin', [ProfileController::class, 'update'])->name('profileUpdate');
-Route::delete('/profile/admin', [ProfileController::class, 'destroy'])->name('profileDestroy');
+// Route::get('welcome', function () {
+//     if (Auth::check() && !Auth::user()->hasVerifiedEmail()) {
+//         return redirect()->route('verification.notice');
+//     }
+
+//     $categories = Category::all();
+//     return view('welcome', compact('categories'));
+// })->name('welcome');
 
 
-// ✅ USER PROFILE ROUTES
-Route::get('/profile', [UserController::class, 'edit'])->name('profile.edit');
-Route::patch('/profile', [UserController::class, 'update'])->name('profile.update');
-Route::delete('/profile', [UserController::class, 'destroy'])->name('profile.destroy');
+    // ✅ ADMIN PROFILE ROUTES (Fixed)
+    Route::get('/profile/admin', [ProfileController::class, 'edit'])->name('profileEdit');
+    Route::patch('/profile/admin', [ProfileController::class, 'update'])->name('profileUpdate');
+    Route::delete('/profile/admin', [ProfileController::class, 'destroy'])->name('profileDestroy');
 
-// ✅ OTHER ROUTES
-Route::put('/admin/password/update', [UserController::class, 'updatePassword'])->name('admin.password.update');
-Route::get('/user', [UserController::class, 'index'])->name('user.page');
-Route::get('/product', [ProductController::class, 'index'])->name('product');
-Route::post('/products', [ProductController::class, 'store']);
-Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
-Route::get('/product/list', [ProductController::class, 'product_datatables'])->name('product.datatables');
-Route::get('/products/user', [ProductController::class, 'user_index']);
-Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 
-//filter products
+    // ✅ USER PROFILE ROUTES
+    Route::get('/profile', [UserController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [UserController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [UserController::class, 'destroy'])->name('profile.destroy');
 
-Route::get('/filter-products', [ProductController::class, 'filterProducts'])->name('products.filter');
+    // ✅ OTHER ROUTES
+    Route::put('/admin/password/update', [UserController::class, 'updatePassword'])->name('admin.password.update');
+    Route::get('/user', [UserController::class, 'index'])->name('user.page');
+    Route::get('/product', [ProductController::class, 'index'])->name('product');
+    Route::post('/products', [ProductController::class, 'store']);
+    Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
+    Route::get('/product/list', [ProductController::class, 'product_datatables'])->name('product.datatables');
+    Route::get('/products/user', [ProductController::class, 'user_index']);
+    Route::delete('/products/{id}', [ProductController::class, 'destroy']);
+    Route::put('/products/{id}/restore', [ProductController::class, 'restore'])->name('products.restore');
+
+
+    //filter products
+    Route::get('/filter-products', [ProductController::class, 'filterProducts'])->name('products.filter');
 
     //cart
     Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
@@ -101,5 +117,42 @@ Route::get('/filter-products', [ProductController::class, 'filterProducts'])->na
     Route::get('/wishlist/count', [\App\Http\Controllers\WishlistController::class, 'count']);
     Route::delete('/wishlist/clear-all', [WishlistController::class, 'clearAll'])->name('wishlist.clearAll');
 
+    //My Order
+    Route::get('/my-orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('/my-orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+    
+    //Payment
+    Route::get('/payment/{order}', [PaymentController::class, 'show'])->name('payment.show');
+    Route::post('/payment/{order}', [PaymentController::class, 'submit'])->name('payment.submit');
 
-require __DIR__.'/auth.php';
+    //Checkout
+    Route::get('/checkout', [CheckoutController::class, 'show'])->name('checkout.show');
+    Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
+
+
+    // OrderAdmin
+    Route::get('/orderAdmin', [OrderAdminController::class, 'index'])->name('orderAdmin');
+    Route::get('/orderAdmin/list', [OrderAdminController::class, 'datatable'])->name('orderAdmin.list');
+    Route::get('/orderAdmin/{order}/items', [OrderAdminController::class, 'items'])->name('orderAdmin.items');
+    Route::put('/orderAdmin/{order}/status', [OrderAdminController::class, 'updateStatus'])->name('orderAdmin.status');
+
+
+    //Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/charts/overview', [DashboardController::class, 'chartOverview'])->name('dashboard.charts.overview');
+    Route::get('/dashboard/table/orders', [DashboardController::class, 'tableOrders'])->name('dashboard.table.orders');
+    Route::get('/dashboard/table/products/marketable', [DashboardController::class, 'tableMarketable'])->name('dashboard.table.marketable');
+    Route::get('/dashboard/table/products/nonmarketable', [DashboardController::class, 'tableNonMarketable'])->name('dashboard.table.nonmarketable');
+    Route::put('/dashboard/orders/{order}/status', [DashboardController::class, 'updateOrderStatus'])->name('dashboard.order.status');
+
+
+    //Category
+    Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+    Route::get('/category/list', [CategoryController::class, 'list'])->name('category.list');
+    Route::post('/category', [CategoryController::class, 'store'])->name('category.store');
+    Route::put('/category/{category}', [CategoryController::class, 'update'])->name('category.update');
+    Route::delete('/category/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
+    Route::put('/category/{category}/restore', [CategoryController::class, 'restore'])->name('category.restore');
+
+
+    require __DIR__.'/auth.php';

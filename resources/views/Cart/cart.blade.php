@@ -48,7 +48,7 @@
         <div class="cart-total">
             <h3>Total: ₱{{ number_format($cartItems->sum('subtotal'), 2) }}</h3>
             <a href="{{ route('welcome') }}" class="btn-continue">Continue Shopping</a>
-            <a href="#" class="btn-checkout">Proceed to Checkout</a>
+            <a href="{{ route('checkout.show') }}" class="btn-checkout">Proceed to Checkout</a>
             @if(!$cartItems->isEmpty())
                 <button class="btn-clear-all" onclick="clearAllCart()">Clear All</button>
             @endif

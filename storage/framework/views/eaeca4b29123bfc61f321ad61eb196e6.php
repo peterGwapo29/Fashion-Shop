@@ -12,7 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="<?php echo e(asset('css/product.css')); ?>">
         <link rel="stylesheet" href="<?php echo e(asset('css/sidebar.css')); ?>">
-        <link rel="stylesheet" href="<?php echo e(asset('css/dashboard.css')); ?>">
+        <link rel="stylesheet" href="<?php echo e(asset('css/adminOrder.css')); ?>">
 
         <link rel="stylesheet" href="https://cdn.datatables.net/2.1.3/css/dataTables.dataTables.min.css">
 
@@ -48,6 +48,9 @@
         <script src="<?php echo e(asset('JS/Admin/Product/delete.js')); ?>"></script>
         <script src="<?php echo e(asset('JS/Admin/Product/view.js')); ?>"></script>
         <script src="<?php echo e(asset('JS/Admin/Product/edit.js')); ?>"></script>
+        <script src="<?php echo e(asset('JS/Admin/Order/view.js')); ?>"></script>
+        <script src="<?php echo e(asset('JS/admin/Dashboard/dashboard.js')); ?>"></script>
+        <script src="<?php echo e(asset('JS/admin/Category/category.js')); ?>"></script>
     </body>
 </html>
 <?php /**PATH C:\petergwapo\FashionStore\resources\views/layouts/app.blade.php ENDPATH**/ ?>

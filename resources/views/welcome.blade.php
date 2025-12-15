@@ -26,6 +26,11 @@
 
     <div class="buttonss">
 
+    <a href="{{ route('orders.index') }}" class="btn-orders">
+        <i class="fa-solid fa-receipt"></i>
+        My Orders
+    </a>
+
     <!-- Cart Button -->
     <a href="{{ route('cart.view') }}" class="cart-btn">
         <i class="fa-solid fa-cart-shopping"></i>

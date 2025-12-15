@@ -1,0 +1,26 @@
+.payment-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 22px;
+  border-radius: 14px;
+  border: 1px solid #eee;
+}
+
+.pay-option {
+  display: block;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.ref-box {
+  margin: 12px 0;
+  display: none;
+}
+
+.ref-box input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}

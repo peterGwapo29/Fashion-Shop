@@ -1,0 +1,129 @@
+.orders-page{
+  max-width:1100px;
+  margin:30px auto;
+  padding:0 16px;
+}
+
+.orders-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.orders-header h2{
+  margin:0;
+  font-size:28px;
+}
+
+.sub{
+  margin:6px 0 0;
+  color:#666;
+  font-size:14px;
+}
+
+.orders-card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,.04);
+}
+
+.orders-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.orders-table th,
+.orders-table td{
+  padding:14px 12px;
+  border-bottom:1px solid #f3f3f3;
+  text-align:left;
+  font-size:14px;
+}
+
+.orders-table th{
+  color:#555;
+  font-weight:700;
+  background:#fafafa;
+}
+
+.mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+.bold{font-weight:800;}
+
+.badge{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid #eee;
+  font-weight:800;
+  font-size:12px;
+  letter-spacing:.5px;
+}
+
+.badge.pending{
+  background:#fff8e6;
+  border-color:#ffe2a8;
+  color:#8a5a00;
+}
+
+.badge.paid{
+  background:#ecfff0;
+  border-color:#c8f3d1;
+  color:#0b6b2a;
+}
+
+.btn-view{
+  display:inline-block;
+  padding:8px 12px;
+  border-radius:10px;
+  border:1px solid #ddd;
+  text-decoration:none;
+  color:#111;
+  font-weight:700;
+  background:#fff;
+}
+
+.btn-view:hover{opacity:.9;}
+
+.btn-primary{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:10px;
+  background:#111;
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.btn-outline{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:10px;
+  border:1px solid #ddd;
+  background:#fff;
+  color:#111;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.empty-box{
+  background:#fff;
+  border:1px dashed #ddd;
+  border-radius:14px;
+  padding:26px;
+  text-align:center;
+}
+
+.empty-box h3{margin:0 0 8px;}
+.empty-box p{margin:0 0 14px;color:#666;}
+
+@media (max-width:900px){
+  .orders-header{align-items:flex-start;flex-direction:column;}
+  .orders-table th:nth-child(4),
+  .orders-table td:nth-child(4){display:none;} /* hide date on small screens */
+}
